@@ -1,0 +1,441 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated colors to match reference image exactly */
+  --background: oklch(0.08 0.03 240);
+  --foreground: oklch(0.96 0.01 240);
+  --card: oklch(0.12 0.04 240);
+  --card-foreground: oklch(0.96 0.01 240);
+  --popover: oklch(0.12 0.04 240);
+  --popover-foreground: oklch(0.96 0.01 240);
+  --primary: oklch(0.78 0.28 165);
+  --primary-foreground: oklch(0.08 0.03 240);
+  --secondary: oklch(0.14 0.04 240);
+  --secondary-foreground: oklch(0.96 0.01 240);
+  --muted: oklch(0.18 0.03 240);
+  --muted-foreground: oklch(0.5 0.02 240);
+  --accent: oklch(0.62 0.3 355);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.2 0.05 240);
+  --input: oklch(0.2 0.03 240);
+  --ring: oklch(0.78 0.28 165);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  /* Adding futuristic fonts */
+  --font-sans: var(--font-rajdhani), ui-sans-serif, system-ui;
+  --font-display: var(--font-orbitron), ui-sans-serif, system-ui;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Enhanced glow effects with animations */
+@keyframes glow-pulse-green {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4), 0 0 40px rgba(0, 255, 136, 0.2), 0 0 60px rgba(0, 255, 136, 0.1), inset
+      0 0 20px rgba(0, 255, 136, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.6), 0 0 60px rgba(0, 255, 136, 0.3), 0 0 90px rgba(0, 255, 136, 0.15),
+      inset 0 0 30px rgba(0, 255, 136, 0.1);
+  }
+}
+
+@keyframes glow-pulse-red {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 23, 68, 0.4), 0 0 40px rgba(255, 23, 68, 0.2), 0 0 60px rgba(255, 23, 68, 0.1), inset
+      0 0 20px rgba(255, 23, 68, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 23, 68, 0.6), 0 0 60px rgba(255, 23, 68, 0.3), 0 0 90px rgba(255, 23, 68, 0.15),
+      inset 0 0 30px rgba(255, 23, 68, 0.1);
+  }
+}
+
+@keyframes border-flow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.glow-green {
+  animation: glow-pulse-green 3s ease-in-out infinite;
+}
+
+.glow-red {
+  animation: glow-pulse-red 3s ease-in-out infinite;
+}
+
+.border-animated-green {
+  background: linear-gradient(90deg, rgba(0, 255, 136, 0.3) 0%, rgba(0, 255, 136, 0.6) 50%, rgba(0, 255, 136, 0.3) 100%);
+  background-size: 200% 100%;
+  animation: border-flow 3s ease-in-out infinite;
+}
+
+.border-animated-red {
+  background: linear-gradient(90deg, rgba(255, 23, 68, 0.3) 0%, rgba(255, 23, 68, 0.6) 50%, rgba(255, 23, 68, 0.3) 100%);
+  background-size: 200% 100%;
+  animation: border-flow 3s ease-in-out infinite;
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Adding new floating particle animations */
+@keyframes float-delayed {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(-15px) translateX(5px);
+  }
+  66% {
+    transform: translateY(-8px) translateX(-5px);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+}
+
+/* Adding new advanced particle animations for more dynamic effects */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(30px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(30px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit-reverse {
+  0% {
+    transform: rotate(0deg) translateX(40px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg) translateX(40px) rotate(360deg);
+  }
+}
+
+@keyframes float-diagonal {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(15px, -15px);
+  }
+  50% {
+    transform: translate(30px, -10px);
+  }
+  75% {
+    transform: translate(15px, -20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.5);
+    filter: blur(8px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(20px, -30px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-10px, -15px) rotate(240deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+@keyframes line-draw {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+/* Adding electric grid animations with traveling lights */
+@keyframes electric-pulse-horizontal {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    background-position: 100% 0%;
+    opacity: 0;
+  }
+}
+
+@keyframes electric-pulse-vertical {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    background-position: 0% 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes grid-glow {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes spark-travel {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%, 100%);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 8s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 10s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-pulse-slower {
+  animation: pulse-slower 6s ease-in-out infinite;
+}
+
+/* Adding new animation utility classes */
+.animate-orbit {
+  animation: orbit 15s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-reverse 20s linear infinite;
+}
+
+.animate-float-diagonal {
+  animation: float-diagonal 12s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-drift {
+  animation: drift 18s ease-in-out infinite;
+}
+
+/* Adding electric grid animation utility classes */
+.animate-electric-h {
+  animation: electric-pulse-horizontal 3s linear infinite;
+}
+
+.animate-electric-v {
+  animation: electric-pulse-vertical 3s linear infinite;
+}
+
+.animate-grid-glow {
+  animation: grid-glow 4s ease-in-out infinite;
+}
